@@ -83,28 +83,6 @@ Nếu là các vi điều khiển, chúng cần một chương trình của nhà
 -Giúp giảm lặp lại mã, dễ bảo trì chương trình.
 -Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define
 
-#include <stdio.h>
-
-// Định nghĩa hằng số Pi sử dụng #define
-#define PI 3.14
-int main() {
-    // Sử dụng hằng số Pi trong chương trình
-    double radius = 5.0;
-    double area = PI * radius * radius;
-
-    printf("Radius: %.2f\n", radius);
-    printf("Area of the circle: %.2f\n", area);
-
-    return 0;
-}
-
-}
-```
-`Output: buffer size is 1020`
-
-**3.** Macro có thể là hàm chứa các tham số, các tham số này sẽ không được kiểm tra kiểu dữ liệu.
-
-Ví dụ, macro INCREMENT(x) ở dưới, x có thể là bất cứ kiểu dữ liệu nào.
 
 ```
 #include <stdio.h>
