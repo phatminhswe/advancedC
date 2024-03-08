@@ -564,6 +564,232 @@ Output
 100
 ```
 
+# LECTURE 3 : POINTER
+
+- Trong ngôn ngữ lập trình C, con trỏ (pointer) là một biến chứa địa chỉ bộ nhớ của một biến khác. Việc sử dụng con trỏ giúp chúng ta thực hiện các thao tác trên bộ nhớ một cách linh hoạt hơn. Dưới đây là một số khái niệm cơ bản về con trỏ trong C:
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/35130344-62a1-45c2-baaf-1db96081131b)
+
+
+- Cách khai báo:
+```
+int *ptr;  // con trỏ đến kiểu int
+char *ptr_char;  // con trỏ đến kiểu char
+float *ptr_float;  // con trỏ đến kiểu float
+
+```
+- Lấy địa chỉ của một biến và truy cập giá trị:
+```
+int x = 10;
+int *ptr_x = &x;  // ptr_x giờ đây chứa địa chỉ của x
+int y = *ptr_x;  // y sẽ bằng giá trị của x
+
+```
+- Kích thước của con trỏ phụ thuộc vào kiến trúc máy tính và trình biên dịch
+
+```
+#include <stdio.h>
+
+int main() {
+    int *ptr;
+    printf("Size of pointer: %d bytes\n", sizeof(ptr));
+    return 0;
+}
+
+```
+- Ứng dụng:
+
+```
+#include <stdio.h>
+void swap(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+int main()
+{
+   int a = 10, b = 20;
+   swap(&a, &b);
+
+   printf("value a is: %d\n", a);
+   printf("value b is: %d\n", b);
+
+    return 0;
+}
+
+
+```
+
+**Void Pointer**
+- Void pointer thường dùng để trỏ để tới bất kỳ địa chỉ nào mà không cần biết tới kiểu dữ liệu của giá trị tại địa chỉ đó.
+
+```
+void *ptr_void;
+
+```
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum(int a, int b)
+{
+    return a+b;
+}
+
+int main() {
+   
+    char array[] = "Hello";
+    int value = 5;
+    double test = 15.7;
+    char letter = 'A';
+   
+    void *ptr = &value;
+    printf("value is: %d\n", *(int*)(ptr));
+
+    ptr = &test;
+    printf("value is: %f\n", *(double*)(ptr));
+
+    ptr = &letter;
+    printf("value is: %c\n", *(char*)(ptr));
+
+    ptr = sum;
+    printf("sum: %d\n", ((int (*)(int,int))ptr)(5,6));
+
+    void *ptr1[] = {&value, &test, &letter , sum, array};
+
+    printf("value: %d\n", *(int*)ptr1[0]);
+
+    printf("value: %c\n", *((char*)ptr1[4]+1));
+
+    return 0;
+}
+```
+**Function Pointer**
+- Pointer to function (con trỏ hàm) là một biến mà giữ địa chỉ của một hàm. Có nghĩa là, nó trỏ đến vùng nhớ trong bộ nhớ chứa mã máy của hàm được định nghĩa trong chương trình.
+- Trong ngôn ngữ lập trình C, con trỏ hàm cho phép bạn truyền một hàm như là một đối số cho một hàm khác, lưu trữ địa chỉ của hàm trong một cấu trúc dữ liệu, hoặc thậm chí truyền hàm như một giá trị trả về từ một hàm khác.
+**EX:**
+```
+#include <stdio.h>
+
+// Hàm mẫu 1
+void greetEnglish() {
+    printf("Hello!\n");
+}
+
+// Hàm mẫu 2
+void greetFrench() {
+    printf("Bonjour!\n");
+}
+
+int main() {
+    // Khai báo con trỏ hàm
+    void (*ptrToGreet)();
+
+    // Gán địa chỉ của hàm greetEnglish cho con trỏ hàm
+    ptrToGreet = greetEnglish;
+
+    // Gọi hàm thông qua con trỏ hàm
+    (*ptrToGreet)();  // In ra: Hello!
+
+    // Gán địa chỉ của hàm greetFrench cho con trỏ hàm
+    ptrToGreet = greetFrench;
+
+    // Gọi hàm thông qua con trỏ hàm
+    (*ptrToGreet)();  // In ra: Bonjour!
+
+    return 0;
+}
+```
+**EX:**
+```
+include <stdio.h>
+
+void sum(int a, int b)
+{
+    printf("Sum of %d and %d is: %d\n",a,b, a+b);
+}
+
+void subtract(int a, int b)
+{
+    printf("Subtract of %d by %d is: %d \n",a,b, a-b);
+}
+
+void multiple(int a, int b)
+{
+    printf("Multiple of %d and %d is: %d \n",a,b, a*b );
+}
+
+void divide(int a, int b)
+{
+    if (b == 0)
+    {
+        printf("Mau so phai khac 0\n");
+        return;
+    }
+    printf("%d divided by %d is: %f \n",a,b, (double)a / (double)b);
+}
+
+void calculator(void (*ptr)(int, int), int a, int b)
+{
+    printf("Program calculate: \n");
+    ptr(a,b);
+}
+
+
+int main()
+{
+    calculator(sum,5,2);
+    calculator(subtract,5,2);
+    calculator(multiple,5,2);
+    calculator(divide,5,2);
+
+    //void (*ptr[])(int, int) = {sum, divide, multiple};
+    //ptr[0](5,6);
+
+    return 0;
+}
+
+```
+
+**EX:**
+
+```
+#include <stdio.h>
+#include <string.h>
+
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n-1; i++)     
+        for (j = i+1; j < n; j++) 
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    bubbleSort(arr, n);
+    printf("Sorted array: \n");
+    for (int i=0; i < n; i++)
+        printf("%d ", arr[i]);
+    return 0;
+}
+
+```
+
+
+
+
+
+  
+
+
+
+
 
 
 
