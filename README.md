@@ -102,3 +102,25 @@ int main() {
 
 ```
 
+**3.** Macro có thể là hàm chứa các tham số, các tham số này sẽ không được kiểm tra kiểu dữ liệu.
+```
+#include <stdio.h>
+
+// Macro để tính bình phương của một số
+#define SQUARE(x) ((x) * (x))
+
+int main() {
+
+    
+    // Sử dụng macro để tính bình phương của num
+    int result = SQUARE(5);
+
+    printf("Result is: %d\n", result);
+
+    return 0;
+}
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/fce86c75-2195-4a06-a014-f9617324ed49)
+
+```
+
+
