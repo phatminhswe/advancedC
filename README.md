@@ -74,8 +74,7 @@ Nếu là các vi điều khiển, chúng cần một chương trình của nhà
 
 - Còn khi sử dụng dấu ngoặc kép thì preprocessor sẽ tìm kiếm file trong thư mục cùng chứa với file chương trình của bạn
 
-`#include "file"
-`
+`#include "file"`
 
 **2.**  Chỉ thị tiền xử lý **#define**
 - Macro là một khái niệm dùng để định nghĩa một tập hợp các hướng dẫn tiền xử lý
@@ -161,5 +160,108 @@ int main() {
 Output:
 21
 ```
+**5.** Các tokens được truyền cho các macro có thể được nối bằng cách sử dụng toán tử ## (còn được gọi là toán tử Token-Pasting)
+
+```
+#include <stdio.h>
+#define merge(X,Y) X##Y
+
+int main() {
+    printf("%d\n",merge(12, 34));
+    return 0;
+}
+```
+
+```
+Output:
+1234
+```
+**6.** Một token được truyền cho macro có thể được chuyển thành một chuỗi kí tự bằng cách sử dụng dấu # trước nó
+
+```
+#include <stdio.h>
+#define convert(a) #a
+
+int main() {
+    printf("%s",convert(Hello));
+    return 0;
+}
+```
+
+```
+Output:
+Hello
+```
+**7.** Các macro có thể được viết trong nhiều dòng bằng cách sử dụng dấu ‘\’.
+
+Dòng cuối cùng không cần có dấu ‘\’
+
+```
+#include <stdio.h>
+
+#define PRINT(i, limit) while (i < limit) { \
+                            printf("Hello"); \
+                            i++;             \
+                         }
+
+int main() {
+    int i = 0; 
+    PRINT(i, 3); 
+    return 0;
+}
+```
+
+```
+Output:
+HelloHelloHello
+```
+**8.** Nên hạn chế sử dụng các macro có các tham số vì chúng thỉnh thoảng có thể gây một số lỗi không mong muốn. Và inline function có thể sử dụng để thay thế.
+
+Chúng ta theo dõi ví dụ dưới đây
+
+```
+#include <stdio.h>
+#define square(x) x*x
+
+int main() {
+    //Expanded as 36/6*6
+    int x=36 / square(6);
+    printf("%d",x);
+    return 0;
+}
+```
+
+```
+Output:
+36
+```
+Có thể thấy kết quả trả về đáng lẽ sẽ là bằng 1 nhưng nó lại bằng 36.
+
+Nếu chúng ta sử dụng inline function, chúng ta sẽ được kết quả đúng như mong muốn
+
+```
+#include <stdio.h>
+static inline int square(int x) { return x*x; }
+
+int main() {
+    int x= 36/ square(6);
+    printf("%d",x);
+    return 0;
+}
+```
+
+```
+Output:
+1
+```
+**9.** Chỉ thị tiền xử lý #if, #elif, #else
+
+- '#if' sử dụng để bắt đầu một điều kiện tiền xử lý.
+- Nếu điều kiện trong '#if' là đúng, các dòng mã nguồn sau '#if' sẽ được biên dịch
+- Nếu sai, các dòng mã nguồn sẽ bị bỏ qua đến khi gặp '#endif'
+- '#elif' dùng để thêm một điều kiện mới khi điều kiện trước đó trong #if hoặc '#elif' là sai
+- '#else' dùng khi không có điều kiện nào ở trên đúng.
+
+
 
 
