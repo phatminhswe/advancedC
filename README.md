@@ -78,10 +78,10 @@ Nếu là các vi điều khiển, chúng cần một chương trình của nhà
 `
 
 **2.**  Chỉ thị tiền xử lý **#define**
--Macro là một khái niệm dùng để định nghĩa một tập hợp các hướng dẫn tiền xử lý
--Dùng để thay thế một chuỗi mã nguồn bằng một chuỗi khác trước khi chương trình biên dịch.
--Giúp giảm lặp lại mã, dễ bảo trì chương trình.
--Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define
+- Macro là một khái niệm dùng để định nghĩa một tập hợp các hướng dẫn tiền xử lý
+- Dùng để thay thế một chuỗi mã nguồn bằng một chuỗi khác trước khi chương trình biên dịch.
+- Giúp giảm lặp lại mã, dễ bảo trì chương trình.
+- Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define
 
 
 ```
