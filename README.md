@@ -254,13 +254,138 @@ int main() {
 Output:
 1
 ```
-**9.** Chỉ thị tiền xử lý #if, #elif, #else
+**9.** Chỉ thị tiền xử lý `#if, #elif, #else`
 
-- '#if' sử dụng để bắt đầu một điều kiện tiền xử lý.
-- Nếu điều kiện trong '#if' là đúng, các dòng mã nguồn sau '#if' sẽ được biên dịch
-- Nếu sai, các dòng mã nguồn sẽ bị bỏ qua đến khi gặp '#endif'
-- '#elif' dùng để thêm một điều kiện mới khi điều kiện trước đó trong #if hoặc '#elif' là sai
-- '#else' dùng khi không có điều kiện nào ở trên đúng.
+- `#if` sử dụng để bắt đầu một điều kiện tiền xử lý.
+- Nếu điều kiện trong `#if` là đúng, các dòng mã nguồn sau `#if` sẽ được biên dịch
+- Nếu sai, các dòng mã nguồn sẽ bị bỏ qua đến khi gặp `#endif`
+- `#elif` dùng để thêm một điều kiện mới khi điều kiện trước đó trong `#if` hoặc `#elif` là sai
+- `#else` dùng khi không có điều kiện nào ở trên đúng.
+```
+#include <stdio.h>
+
+typedef enum
+{
+    GPIOA,
+    GPIOB,
+    GPIOC
+} Ports;
+
+typedef enum
+{
+    PIN1,
+    PIN2,
+    PIN3,
+    PIN4,
+    PIN5,
+    PIN6,
+    PIN7,
+} Pins;
+
+typedef enum
+{
+    HIGH,
+    LOW
+} Status;
+
+#define STM32 0
+#define ATMEGA 1
+#define PIC 2
+
+#define MCU STM32
+
+#if MCU == STM32
+void daoTrangThaiDen(Ports port, Pins pin, Status status)
+{
+    if (status == HIGH)
+    {
+        HAL_GPIO_WritePin(port, pin, LOW);
+    }
+    else
+    {
+        HAL_GPIO_WritePin(port, pin, HIGH);
+    }  
+}
+#elif MCU == ATMEGA
+void daoTrangThaiDen(Pins pin, Status status)
+{
+    if (status == HIGH)
+    {
+        digitalWrite(pin, LOW);
+    }
+    else
+    {
+        digitalWrite(pin, HIGH);
+    }  
+}
+
+#endif
+
+void delay(int ms)
+{
+
+}
+
+
+int main()
+{
+    while(1)
+    {
+        daoTrangThaiDen(GPIOA,13,HIGH);
+        delay(1000);
+    }
+
+    return 0;
+}
+
+```
+**10.** Chỉ thị tiền xử lý `#ifdef, #ifndef`
+
+- `#ifdef` dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro đã được định nghĩa thì mã nguồn sau `#ifdef` sẽ được biên dịch.
+- `#ifndef` dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau `#ifndef` sẽ được biên dịch
+
+abc.txt
+```
+#ifndef __ABC_H
+#define __ABC_H
+
+int a = 10;
+
+#endif
+```
+```
+#include <stdio.h>
+
+#include "abc.txt"
+#include "abc.txt"
+#include "abc.txt"
+
+
+int main()
+{
+    printf("Hello \n");
+    
+    return 0;
+}
+
+```
+**11.** Một số toán tử Macro
+
+**a**
+```
+#include <stdio.h>
+#define STRINGIZE(x)
+#define DATA 40
+int main() {
+// Sử dụng toán tử
+printf("The value is: %s\n", STRINGIZE(DATA));
+return 0;
+}
+```
+
+
+
+
 
 
 
