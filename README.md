@@ -89,7 +89,7 @@ Nếu là các vi điều khiển, chúng cần một chương trình của nhà
 - Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define
 
 
-```
+```C
 #include <stdio.h>
 
 // Định nghĩa hằng số Pi sử dụng #define
