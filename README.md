@@ -119,7 +119,6 @@ int main() {
 
     return 0;
 }
-![image](https://github.com/phatminhswe/advancedC/assets/162662273/fce86c75-2195-4a06-a014-f9617324ed49)
 
 ```
 
