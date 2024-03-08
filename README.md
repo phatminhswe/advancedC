@@ -371,7 +371,7 @@ int main()
 ```
 **11.** Một số toán tử Macro
 
-**a**
+**a)**
 ```
 #include <stdio.h>
 #define STRINGIZE(x)
@@ -382,6 +382,187 @@ printf("The value is: %s\n", STRINGIZE(DATA));
 return 0;
 }
 ```
+```
+#include <stdio.h>
+#define STRINGIZE_RESULT(x) STRINGIZE(x) #define STRINGIZE(x) #x#define DATA 40
+int main() {
+// Sử dụng toán tử #
+printf("The value is: %s\n", STRINGIZE_RESULT(DATA));
+return 0;
+}
+
+```
+**b)**
+```
+#include <stdio.h>
+#define DECLARE_VARIABLE(prefix, number)
+
+int prefix##number
+
+int main() {
+// Sử dụng macro để khai báo các biến động
+DECLARE_VARIABLE(var, 1); // int var1;
+DECLARE_VARIABLE(var, 2); // int var2;
+// Gán giá trị cho các biến
+var1 = 10;
+var2 = 20;
+// In ra giá trị của các biến
+printf("var1: %d\n", var1);
+printf("var2: %d\n", var2);
+return 0;
+}
+
+```
+**c)**
+```
+#include <stdio.h>
+
+void feature1() { printf("Feature 1 selected\n"); }
+void feature2() { printf("Feature 2 selected\n"); }
+void feature3() { printf("Feature 3 selected\n"); }
+void feature4() { printf("Feature 4 selected\n"); }
+
+
+int main()
+{
+    printf("1. Option 1\n");
+    printf("2. Option 2\n");
+    printf("3. Option 3\n");
+    printf("4. Option 4\n");
+    printf("5. Exit\n");
+
+    // Giả sử option được nhập từ người dùng
+    int option ;
+    scanf("%d", &option);
+
+    switch (option)
+    {
+    case 1:
+        feature1();
+        break;
+    case 2:
+        feature2();
+        break;
+    case 3:
+        feature3();
+        break;
+    case 4:
+        feature4();
+        break;
+    default:
+        printf("Invalid option");
+        break;
+    }
+    return 0;
+}
+
+
+```
+```
+#include <stdio.h>
+#define PRINT_MENU_ITEM(number, item) printf("%d. %s\n", number, item)
+#define PRINT_MENU(...) \
+    do { \
+        const char* items[] = {__VA_ARGS__}; \
+        int n = sizeof(items) / sizeof(items[0]); \
+        for (int i = 0; i < n; i++) { \
+            PRINT_MENU_ITEM(i + 1, items[i]); \
+        } \
+    } while (0)
+```
+```
+#define CASE_OPTION(number, function) case number: function(); break;
+#define HANDLE_OPTION(option, ...) \
+    switch (option) { \
+        __VA_ARGS__ \
+        default: printf("Invalid option!\n"); \
+    }
+
+
+void feature1() { printf("Feature 1 selected\n"); }
+void feature2() { printf("Feature 2 selected\n"); }
+void feature3() { printf("Feature 3 selected\n"); }
+void feature4() { printf("Feature 4 selected\n"); }
+```
+```
+int main()
+{
+    PRINT_MENU("Option 1", "Option 2", "Option 3","Option4", "Exit");
+
+    // Giả sử option được nhập từ người dùng
+    int option ;
+    scanf("%d", &option);
+
+    HANDLE_OPTION(option,
+        CASE_OPTION(1, feature1)
+        CASE_OPTION(2, feature2)
+        CASE_OPTION(3, feature3)
+        CASE_OPTION(4, feature4)
+
+     
+    )
+    return 0;
+}
+```
+
+**12.** Chỉ thị tiền xử lý `#undef`
+
+
+- Chỉ thị `#undef` dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng `#define`
+```
+#include <stdio.h>
+// Định nghĩa SENSOR_DATA 
+#define SENSOR_DATA 42
+int main() {
+printf("Value of MY_MACRO: %d\n", MY_MACRO);
+// Hủy định nghĩa SENSOR_DATA 
+#undef SENSOR_DATA 
+// Định nghĩa SENSOR_DATA 
+#define SENSOR_DATA 50
+printf("Value of MY_MACRO: %d\n", MY_MACRO);
+return 0;
+}
+```
+- Chúng ta có thể bỏ định nghĩa các macro đã định nghĩa trước đó bằng cách sử dụng #undef
+
+```
+#include <stdio.h>
+#define NUMBER 212
+
+int main() {
+    printf("%d", NUMBER);
+#undef NUMBER
+    printf("%d", NUMBER);
+    return 0;
+}
+```
+
+Chương trinh này sẽ có lỗi tại dòng thứ 7 vì NUMBER chưa được định nghĩa. Ta sẽ chỉnh lại như sau:
+
+```
+#include <stdio.h>
+#define NUMBER 212
+
+int main() {
+    printf("%d\n", NUMBER);
+#undef NUMBER
+    int NUMBER = 100;
+    printf("%d", NUMBER);
+    return 0;
+}
+```
+
+```
+Output
+212 
+100
+```
+
+
+
+
+
+
 
 
 
