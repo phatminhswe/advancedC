@@ -102,7 +102,7 @@ int main() {
 
 ```
 
-**3.** Macro có thể là hàm chứa các tham số, các tham số này sẽ không được kiểm tra kiểu dữ liệu.
+**3.** Macro có thể là hàm chứa các tham số.
 ```
 #include <stdio.h>
 
@@ -120,6 +120,46 @@ int main() {
     return 0;
 }
 
+```
+
+**4.** Preprocessor chỉ thực hiện thay thế các macro chứ không thực hiện các phép tính toán.
+
+Ta có ví dụ như sau:
+
+```
+#include <stdio.h>
+#define CALC(X,Y) (X*Y)
+
+int main() {
+    printf("%d\n",CALC(1+2, 3+4));
+    return 0;
+}
+```
+
+```
+Output:
+11
+```
+Có thể thấy kết quả mong muốn là 21, tuy nhiên lại bằng 11.
+
+Bởi vì các tham số sẽ được tính toán sau khi được thay thế nên macro CALC(1+2,3+4) sẽ trở thành (1+2*3+4) = (1+6+4) =(11).
+
+Vậy để kết quả được tính đúng thì ta phải sửa lại như sau:
+
+```
+#include <stdio.h>
+// instead of writing X*Y, we write (X)*(Y)
+#define CALC(X,Y) (X)*(Y)
+
+int main() {
+    printf("%d\n",CALC(1+2, 3+4));
+    return 0;
+}
+```
+
+```
+Output:
+21
 ```
 
 
