@@ -908,6 +908,52 @@ int main() {
 
 ```
 
+# LECTURE 4 : Memory layout
+
+**Memory layout**
+
+-Chương trình main.exe ( trên window), main.hex ( nạp vào vi điều khiển) được lưu ở bộ nhớ SSD hoặc FLASH. Khi nhấn run chương trình trên window ( cấp nguồn cho vi điều khiển) thì những chương trình này sẽ được copy vào bộ nhớ RAM để thực thi.
+
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/e03f680a-7462-401d-a3f5-6a25013a02c6)
+
+
+**Text segment**
+
+Mã máy:
+- Chứa tập hợp các lệnh thực thi.
+- Quyền truy cập: Text Segment thường có quyền đọc và thực thi, nhưng không có quyền ghi. 
+- Lưu hằng số, con trỏ kiểu char.
+- Tất cả các biến lưu ở phần vùng Text đều không thể thay đổi giá trị mà chỉ được đọc.
+```
+#include <stdio.h>
+
+const int a = 10;
+char arr[] = "Hello";
+char *arr1 = "Hello";
+
+int main() {
+   
+
+    printf("a: %d\n", a);
+
+    arr[3] = 'W';
+    printf("arr: %s", arr);
+
+    arr1[3] = 'E';
+    printf("arr1: %s", arr1);
+
+    
+    return 0;
+}
+
+```
+
+
+
+
+
+
 
   
 
