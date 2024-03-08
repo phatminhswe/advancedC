@@ -108,7 +108,7 @@ int main() {
 ```
 
 **3.** Macro có thể là hàm chứa các tham số.
-```
+```C
 #include <stdio.h>
 
 // Macro để tính bình phương của một số
@@ -131,7 +131,7 @@ int main() {
 
 Ta có ví dụ như sau:
 
-```
+```C
 #include <stdio.h>
 #define CALC(X,Y) (X*Y)
 
@@ -151,7 +151,7 @@ Bởi vì các tham số sẽ được tính toán sau khi được thay thế n
 
 Vậy để kết quả được tính đúng thì ta phải sửa lại như sau:
 
-```
+```C
 #include <stdio.h>
 // instead of writing X*Y, we write (X)*(Y)
 #define CALC(X,Y) (X)*(Y)
@@ -168,7 +168,7 @@ Output:
 ```
 **5.** Các tokens được truyền cho các macro có thể được nối bằng cách sử dụng toán tử ## (còn được gọi là toán tử Token-Pasting)
 
-```
+```C
 #include <stdio.h>
 #define merge(X,Y) X##Y
 
@@ -184,7 +184,7 @@ Output:
 ```
 **6.** Một token được truyền cho macro có thể được chuyển thành một chuỗi kí tự bằng cách sử dụng dấu # trước nó
 
-```
+```C
 #include <stdio.h>
 #define convert(a) #a
 
@@ -202,7 +202,7 @@ Hello
 
 Dòng cuối cùng không cần có dấu ‘\’
 
-```
+```C
 #include <stdio.h>
 
 #define PRINT(i, limit) while (i < limit) { \
@@ -225,7 +225,7 @@ HelloHelloHello
 
 Chúng ta theo dõi ví dụ dưới đây
 
-```
+```C
 #include <stdio.h>
 #define square(x) x*x
 
@@ -245,7 +245,7 @@ Có thể thấy kết quả trả về đáng lẽ sẽ là bằng 1 nhưng nó
 
 Nếu chúng ta sử dụng inline function, chúng ta sẽ được kết quả đúng như mong muốn
 
-```
+```C
 #include <stdio.h>
 static inline int square(int x) { return x*x; }
 
@@ -267,7 +267,7 @@ Output:
 - Nếu sai, các dòng mã nguồn sẽ bị bỏ qua đến khi gặp `#endif`
 - `#elif` dùng để thêm một điều kiện mới khi điều kiện trước đó trong `#if` hoặc `#elif` là sai
 - `#else` dùng khi không có điều kiện nào ở trên đúng.
-```
+```C
 #include <stdio.h>
 
 typedef enum
@@ -351,7 +351,7 @@ int main()
 - `#ifndef` dùng để kiểm tra một macro đã được định nghĩa hay chưa, nếu macro chưa được định nghĩa thì mã nguồn sau `#ifndef` sẽ được biên dịch
 
 abc.txt
-```
+```C
 #ifndef __ABC_H
 #define __ABC_H
 
@@ -359,7 +359,7 @@ int a = 10;
 
 #endif
 ```
-```
+```C
 #include <stdio.h>
 
 #include "abc.txt"
@@ -378,7 +378,7 @@ int main()
 **11.** Một số toán tử Macro
 
 **a)**
-```
+```C
 #include <stdio.h>
 #define STRINGIZE(x)
 #define DATA 40
@@ -388,7 +388,7 @@ printf("The value is: %s\n", STRINGIZE(DATA));
 return 0;
 }
 ```
-```
+```C
 #include <stdio.h>
 #define STRINGIZE_RESULT(x) STRINGIZE(x)
 #define STRINGIZE(x) #x#define DATA 40
@@ -400,7 +400,7 @@ return 0;
 
 ```
 **b)**
-```
+```C
 #include <stdio.h>
 #define DECLARE_VARIABLE(prefix, number)
 
@@ -421,7 +421,7 @@ return 0;
 
 ```
 **c)**
-```
+```C
 #include <stdio.h>
 
 void feature1() { printf("Feature 1 selected\n"); }
@@ -465,7 +465,7 @@ int main()
 
 
 ```
-```
+```C
 #include <stdio.h>
 #define PRINT_MENU_ITEM(number, item) printf("%d. %s\n", number, item)
 #define PRINT_MENU(...) \
@@ -477,7 +477,7 @@ int main()
         } \
     } while (0)
 ```
-```
+```C
 #define CASE_OPTION(number, function) case number: function(); break;
 #define HANDLE_OPTION(option, ...) \
     switch (option) { \
@@ -491,7 +491,7 @@ void feature2() { printf("Feature 2 selected\n"); }
 void feature3() { printf("Feature 3 selected\n"); }
 void feature4() { printf("Feature 4 selected\n"); }
 ```
-```
+```C
 int main()
 {
     PRINT_MENU("Option 1", "Option 2", "Option 3","Option4", "Exit");
@@ -516,7 +516,7 @@ int main()
 
 
 - Chỉ thị `#undef` dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng `#define`
-```
+```C
 #include <stdio.h>
 // Định nghĩa SENSOR_DATA 
 #define SENSOR_DATA 42
@@ -532,7 +532,7 @@ return 0;
 ```
 - Chúng ta có thể bỏ định nghĩa các macro đã định nghĩa trước đó bằng cách sử dụng #undef
 
-```
+```C
 #include <stdio.h>
 #define NUMBER 212
 
@@ -546,7 +546,7 @@ int main() {
 
 Chương trinh này sẽ có lỗi tại dòng thứ 7 vì NUMBER chưa được định nghĩa. Ta sẽ chỉnh lại như sau:
 
-```
+```C
 #include <stdio.h>
 #define NUMBER 212
 
@@ -573,14 +573,14 @@ Output
 
 
 - Cách khai báo:
-```
+```C
 int *ptr;  // con trỏ đến kiểu int
 char *ptr_char;  // con trỏ đến kiểu char
 float *ptr_float;  // con trỏ đến kiểu float
 
 ```
 - Lấy địa chỉ của một biến và truy cập giá trị:
-```
+```C
 int x = 10;
 int *ptr_x = &x;  // ptr_x giờ đây chứa địa chỉ của x
 int y = *ptr_x;  // y sẽ bằng giá trị của x
@@ -588,7 +588,7 @@ int y = *ptr_x;  // y sẽ bằng giá trị của x
 ```
 - Kích thước của con trỏ phụ thuộc vào kiến trúc máy tính và trình biên dịch
 
-```
+```C
 #include <stdio.h>
 
 int main() {
@@ -600,7 +600,7 @@ int main() {
 ```
 - Ứng dụng:
 
-```
+```C
 #include <stdio.h>
 void swap(int *a, int *b)
 {
@@ -625,11 +625,11 @@ int main()
 **Void Pointer**
 - Void pointer thường dùng để trỏ để tới bất kỳ địa chỉ nào mà không cần biết tới kiểu dữ liệu của giá trị tại địa chỉ đó.
 
-```
+```C
 void *ptr_void;
 
 ```
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -670,7 +670,7 @@ int main() {
 - Pointer to function (con trỏ hàm) là một biến mà giữ địa chỉ của một hàm. Có nghĩa là, nó trỏ đến vùng nhớ trong bộ nhớ chứa mã máy của hàm được định nghĩa trong chương trình.
 - Trong ngôn ngữ lập trình C, con trỏ hàm cho phép bạn truyền một hàm như là một đối số cho một hàm khác, lưu trữ địa chỉ của hàm trong một cấu trúc dữ liệu, hoặc thậm chí truyền hàm như một giá trị trả về từ một hàm khác.
 **EX:**
-```
+```C
 #include <stdio.h>
 
 // Hàm mẫu 1
@@ -703,7 +703,7 @@ int main() {
 }
 ```
 **EX:**
-```
+```C
 include <stdio.h>
 
 void sum(int a, int b)
@@ -755,7 +755,7 @@ int main()
 
 **EX:**
 
-```
+```C
 #include <stdio.h>
 #include <string.h>
 
@@ -788,7 +788,7 @@ int const *ptr_const;
 const int *ptr_const;
 ```
 **EX:**
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -818,7 +818,7 @@ int *const const_ptr = &value;
 
 ```
 **EX:**
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -848,7 +848,7 @@ int main() {
 
 
 **EX:**
-```
+```C
 #include <stdio.h>
 
 int main() {
@@ -883,7 +883,7 @@ int main() {
 - Null Pointer là một con trỏ không trỏ đến bất kỳ đối tượng hoặc vùng nhớ cụ thể nào. Trong ngôn ngữ lập trình C, một con trỏ có thể được gán giá trị NULL để biểu diễn trạng thái null.
 - Sử dụng null pointer thường hữu ích để kiểm tra xem một con trỏ đã được khởi tạo và có trỏ đến một vùng nhớ hợp lệ chưa. Tránh dereferencing (sử dụng giá trị mà con trỏ trỏ đến) một null pointer là quan trọng để tránh lỗi chương trình.
 **EX:**
-```
+```C
 #include <stdio.h>
 
 int main() {
@@ -926,7 +926,7 @@ Mã máy:
 - Quyền truy cập: Text Segment thường có quyền đọc và thực thi, nhưng không có quyền ghi. 
 - Lưu hằng số, con trỏ kiểu char.
 - Tất cả các biến lưu ở phần vùng Text đều không thể thay đổi giá trị mà chỉ được đọc.
-```
+```C
 #include <stdio.h>
 
 const int a = 10;
@@ -957,8 +957,8 @@ Initialized Data Segment (Dữ liệu Đã Khởi Tạo):
 - Tất cả các biến sẽ được thu hồi sau khi chương trình kết thúc.
 
   **EX:**
-  #include <stdio.h>
-```
+ ```C 
+#include <stdio.h>
 int a = 10;
 double d = 20.5;
 
@@ -1011,7 +1011,7 @@ static int global_2;
 static Point_Data p1 = {5,7};
 
 **EX:**
-```
+```C
 void test()
 {
     static int local = 0;
@@ -1037,7 +1037,7 @@ int main() {
 - Quyền truy cập: đọc và ghi, nghĩa là có thể đọc và thay đổi giá trị của biến trong suốt thời gian chương trình chạy.
 - Sau khi ra khỏi hàm, sẽ thu hồi vùng nhớ.
 
-```
+```C
 #include <stdio.h>
 
 
@@ -1084,7 +1084,7 @@ int main() {
 ![image](https://github.com/phatminhswe/advancedC/assets/162662273/b438a1ec-5944-4ed6-958a-0ff201c37a8b)
 
 
-```
+```C
 #include <stdio.h>
 #include <stdint.h>
 
@@ -1117,7 +1117,7 @@ Cấp phát động:
 -Giá trị trả về: con trỏ void
 
 **EX:**
-```
+```C
 #include <stdlib.h>
 
 int main() {
@@ -1141,7 +1141,7 @@ int main() {
 
 ```
 **EX:**
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1184,7 +1184,7 @@ int main(int argc, char const *argv[])
 - Heap: Vùng nhớ Heap được quản lý bởi lập trình viên (trong C hoặc C++), dữ liệu trong Heap sẽ không bị hủy khi hàm thực hiện xong, điều đó có nghĩa bạn phải tự tay giải phóng vùng nhớ bằng câu lệnh free (trong C), và delete hoặc delete [] (trong C++), nếu không sẽ xảy ra hiện tượng rò rỉ bộ nhớ.
 **EX:**
   
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
