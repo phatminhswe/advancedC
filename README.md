@@ -63,7 +63,11 @@ Nếu là máy tính chạy hệ điều hành windows thì file thực thi thư
 Nếu là máy tính chạy hệ điều hành linux thì file thực thi thường có đuôi là .out (hoặc không đuôi, tùy thuộc vào cách lưu của người dùng) được lưu trên ổ cứng. Khi nào có lệnh chạy chương trình thì mã chương trình được tải lên RAM chạy tương tự như windows.
 
 Nếu là các vi điều khiển, chúng cần một chương trình của nhà sản xuất vi điều khiển để tải (load/flash/program) chương trình vào vi điều khiển.
+
+
 ![image](https://github.com/phatminhswe/advancedC/assets/162662273/a2e9224c-fa09-428d-8d8d-c7535b1dcb83)
+
+
 
 
 **II. MACRO**
