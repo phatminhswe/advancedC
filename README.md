@@ -1,5 +1,5 @@
 ADCANCED C
-<details><summary> LECTURE 1 : COMPILER AND MACRO </summary>
+<details> LECTURE 1 : COMPILER AND MACRO 
 
 **I.	COMPILER**
 
