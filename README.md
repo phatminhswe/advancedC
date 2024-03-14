@@ -1362,7 +1362,7 @@ int *A = (int *)malloc(18446744073709551615);
 </details>
 <details><summary>  LECTURE 5 : Extern - Static - Volatile - Register </summary>
 </p>
-#Extern
+# Extern
 
 
 </p>
