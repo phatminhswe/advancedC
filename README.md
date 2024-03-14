@@ -1488,9 +1488,79 @@ int main() {
 }
 
 ```
+<details><summary>  LECTURE 6 : Goto - setjmp.h </summary>
 
+# Goto
+Câu lệnh goto trong C cung cấp một bước nhảy vô điều kiện từ 'goto' đến một câu lệnh có nhãn trong cùng một hàm.
 
+Chú ý: Việc sử dụng câu lệnh goto không được khuyến khích sử dụng trong bất kỳ ngôn ngữ lập trình nào vì nó rất khó để theo dõi luồng điều khiển của chương trình, làm cho chương trình khó hiểu và khó bảo trì.
+- Cú pháp
+```
+goto ten_nhan;
+..
+.
+ten_nhan: lenh;
+```
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/74404500-7205-47a7-af56-851a16b6c471)
+**EX:**
+```c
+// kiểm tra 1 số là số chẵn hay số lẻ
+#include <stdio.h> 
+ 
+// function to check even or not 
+void checkEvenOrNot(int num) 
+{ 
+   if (num % 2 == 0)  // số chẵn
+       goto even; 
+   else               // số lẻ
+       goto odd; 
+ 
+even: 
+   printf("%d là số chẵn", num); 
+   return; // return nếu không chương trình sẽ chạy tiếp xuống bên dưới
+odd: 
+   printf("%d là số lẻ", num); 
+} 
+ 
+int main() { 
+   int num = 26; 
+   checkEvenOrNot(num); 
+   return 0; 
+} 
+```
+```
+26 là số chẵn
+```
+Ở chương trình trên chúng ta thấy có 2 nhãn dãn để nhảy vào. Khi chương trình kiểm tra 1 số là số chẵn hay số lẻ nó sẽ nhảy vào nhãn dãn tương ứng để xử lý.
+
+Chú ý nếu không có return chương trình sẽ tiếp tục chạy tiếp xuống các dòng lệnh bên dưới. Vì goto hiểu đơn giản chỉ là trỏ chương trình nhảy tới 1 vị trí chúng ta đã đặt sẵn.
+**EX:**
+```C
+#include <stdio.h> 
+ 
+// in ra các số từ 1 đến 10
+void printNumbers() 
+{ 
+   int n = 1; 
+label: 
+   printf("%d ",n); 
+   n++; 
+   if (n <= 10)   // nếu n <= 10 nhảy đến vị trí nhãn dãn label
+       goto label; 
+} 
+ 
+int main() { 
+   printNumbers(); 
+   return 0; 
+} 
+```
+```
+Kết quả: 1 2 3 4 5 6 7 8 9 10
+```
 <details>
+<details><summary>  LECTURE 7 : Bitmask </summary>
+
 
 
 
