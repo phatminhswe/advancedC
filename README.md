@@ -1,5 +1,6 @@
 ADCANCED C
-## LECTURE 1 : COMPILER AND MACRO
+<details><summary>## LECTURE 1 : COMPILER AND MACRO</summary>
+</p>
 **I.	COMPILER**
 
 _**Quy trình biên dịch một chương trình C**_
@@ -564,6 +565,8 @@ Output
 212 
 100
 ```
+</p>
+</details>
 ##  LECTURE 2 : TDARG - ASSERT
 **I.Thư viện stdarg**
 - Cung cấp các phương thức để làm việc với các hàm có số lượng input parameter không cố định.
