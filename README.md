@@ -1,5 +1,5 @@
 ADCANCED C
-<details><summary> #LECTURE 1 : COMPILER AND MACRO </summary>
+<details><summary> LECTURE 1 : COMPILER AND MACRO </summary>
 </p>
 **I.	COMPILER**
 
@@ -567,7 +567,9 @@ Output
 ```
 </p>
 </details>
-##  LECTURE 2 : TDARG - ASSERT
+<details><summary> LECTURE 2 : TDARG - ASSERT </summary>
+</p>
+
 **I.Thư viện stdarg**
 - Cung cấp các phương thức để làm việc với các hàm có số lượng input parameter không cố định.
 - Các hàm như printf và scanf là ví dụ điển hình 
@@ -677,8 +679,10 @@ void checkTypeSizes() {
     // Kiểm tra các kích thước kiểu dữ liệu khác
 }
 ```
-
-## LECTURE 3 : POINTER
+</p>
+</details>
+<details><summary> ## LECTURE 3 : POINTER </summary>
+</p>
 
 - Trong ngôn ngữ lập trình C, con trỏ (pointer) là một biến chứa địa chỉ bộ nhớ của một biến khác. Việc sử dụng con trỏ giúp chúng ta thực hiện các thao tác trên bộ nhớ một cách linh hoạt hơn. Dưới đây là một số khái niệm cơ bản về con trỏ trong C:
 
@@ -1021,7 +1025,10 @@ int main() {
 }
 
 ```
-
+</p>
+</details>
+<details><summary> ## LECTURE 4 : Memory layout </summary>
+</p>
 ## LECTURE 4 : Memory layout
 
 **Memory layout**
