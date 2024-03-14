@@ -1028,7 +1028,7 @@ int main() {
 </p>
 </details>
 <details><summary>  LECTURE 4 : Memory layout </summary>
-</p>
+
 
 
 **Memory layout**
@@ -1358,7 +1358,7 @@ int foo(int x){
 int *A = (int *)malloc(18446744073709551615);
 ```
 
-</p>
+
 </details>
 <details><summary>  LECTURE 5 : Extern - Static - Volatile - Register </summary>
 </p>
