@@ -681,7 +681,7 @@ void checkTypeSizes() {
 ```
 </p>
 </details>
-<details><summary> ## LECTURE 3 : POINTER </summary>
+<details><summary> LECTURE 3 : POINTER </summary>
 </p>
 
 - Trong ngôn ngữ lập trình C, con trỏ (pointer) là một biến chứa địa chỉ bộ nhớ của một biến khác. Việc sử dụng con trỏ giúp chúng ta thực hiện các thao tác trên bộ nhớ một cách linh hoạt hơn. Dưới đây là một số khái niệm cơ bản về con trỏ trong C:
@@ -1027,7 +1027,7 @@ int main() {
 ```
 </p>
 </details>
-<details><summary> ## LECTURE 4 : Memory layout </summary>
+<details><summary>  LECTURE 4 : Memory layout </summary>
 </p>
 ## LECTURE 4 : Memory layout
 
