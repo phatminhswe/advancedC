@@ -1488,6 +1488,7 @@ int main() {
 }
 
 ```
+</details>
 <details><summary>  LECTURE 6 : Goto - setjmp.h </summary>
 
 # Goto
