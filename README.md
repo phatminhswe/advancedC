@@ -1559,6 +1559,54 @@ int main() {
 ```
 Kết quả: 1 2 3 4 5 6 7 8 9 10
 ```
+# setjmp.h
+Header file có tên setjmp.h trong Thư viện C định nghĩa macro setjmp(), một hàm longjmp(), và một kiểu biến jmp_buf, để bỏ qua lời gọi hàm thông thường và trả về qui tắc, bằng cách cung cấp các phương thức để thực hiện các cú nhảy mà vẫn duy trì môi trường gọi hàm.
+
+**Biến được định nghĩa trong setjmp.h**
+Dưới đây là kiểu biến được định nghĩa trong setjmp.h:
+
+jmp_buf: Đây là một kiểu mảng được sử dụng để giữ thông tin cho macro setjmp() và hàm longjmp().
+
+**Các macro được định nghĩa trong setjmp.h**
+Chỉ có một macro được định nghĩa trong thư viện này:
+
+int setjmp(jmp_buf environment): Macro này lưu trữ môi trường (environment) hiện tại bên trong biến environment để sử dụng sau bởi hàm longjmp(). Nếu macro này trả về một cách trực tiếp từ lời gọi macro, thì nó trả về 0; nhưng nếu nó trả về từ một lời gọi hàm longjmp(), thì một giá trị khác 0 được trả về.
+
+**Khai báo Macro setjmp() trong C**
+
+Dưới đây là phần khai báo cho setjmp() macro.
+```
+int setjmp(jmp_buf environment)
+```
+- Tham số:
+
+environment − Đây là đối tượng của kiểu jmp_buf nơi mà thông tin về môi trường được lưu trữ.
+
+- Trả về giá trị:
+
+Macro này trả về nhiều hơn 1 lần. Đầu tiên, trên lời gọi trực tiếp của nó, nó luôn luôn trả về 0. Khi longjmp được gọi với thông tin được thiết lập tới environment, macro này lại trả về lần nữa; lúc này nó trả về giá trị đã được truyền tới longjmp như là tham số thứ hai.
+
+**Các hàm được định nghĩa trong setjmp.h**
+Chỉ có một hàm được định nghĩa trong setjmp.h:
+
+Hàm void longjmp(jmp_buf environment, int value): Hàm này phục hồi môi trường (environment) đã được lưu trữ bởi lời gọi gần nhất tới macro setjmp() trong cùng lời gọi hàm của chương trình với tham số tương ứng là jmp_buf.
+
+**Khai báo hàm longjmp() trong C**
+
+Dưới đây là phần khai báo cho hàm longjmp() trong C:
+```
+void longjmp(jmp_buf environment, int value)
+```
+- Tham số:
+
+environment − Đây là đối tượng của kiểu jmp_buf chứa thông tin để lưu trữ môi trường tại điểm gọi của setjmp.
+value − Đây là giá trị để biểu thức setjmp ước lượng.
+
+- Trả về giá trị:
+
+Hàm này không trả về bất cứ giá trị nào.
+
+
 </details>
 <details><summary>  LECTURE 7 : Bitmask </summary>
 
@@ -1643,6 +1691,7 @@ int main() {
     return 0;
 }
 ```
+
 
 
 
