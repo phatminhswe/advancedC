@@ -1,7 +1,7 @@
 ADCANCED C
-<details><summary> LECTURE 1 : COMPILER AND MACRO </summary>
+## <details><summary> LECTURE 1 : COMPILER AND MACRO </summary>
 
-##**I.	COMPILER**
+**I.	COMPILER**
 
 _**Quy trình biên dịch một chương trình C**_
 -	Một ngôn ngữ cao hơn ngôn ngữ máy là ngôn ngữ Assembly. Đây là ngôn ngữ gần với ngôn ngữ máy nhất, từ Assembly có thể dịch ra ngôn ngữ máy để máy có thể hoạt động được.
