@@ -1560,9 +1560,11 @@ int main() {
 Kết quả: 1 2 3 4 5 6 7 8 9 10
 ```
 # setjmp.h
+
 Header file có tên setjmp.h trong Thư viện C định nghĩa macro setjmp(), một hàm longjmp(), và một kiểu biến jmp_buf, để bỏ qua lời gọi hàm thông thường và trả về qui tắc, bằng cách cung cấp các phương thức để thực hiện các cú nhảy mà vẫn duy trì môi trường gọi hàm.
 
 **Biến được định nghĩa trong setjmp.h**
+
 Dưới đây là kiểu biến được định nghĩa trong setjmp.h:
 
 jmp_buf: Đây là một kiểu mảng được sử dụng để giữ thông tin cho macro setjmp() và hàm longjmp().
@@ -1575,6 +1577,7 @@ int setjmp(jmp_buf environment): Macro này lưu trữ môi trường (environme
 **Khai báo Macro setjmp() trong C**
 
 Dưới đây là phần khai báo cho setjmp() macro.
+
 ```
 int setjmp(jmp_buf environment)
 ```
