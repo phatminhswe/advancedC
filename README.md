@@ -1570,6 +1570,7 @@ Dưới đây là kiểu biến được định nghĩa trong setjmp.h:
 jmp_buf: Đây là một kiểu mảng được sử dụng để giữ thông tin cho macro setjmp() và hàm longjmp().
 
 **Các macro được định nghĩa trong setjmp.h**
+
 Chỉ có một macro được định nghĩa trong thư viện này:
 
 int setjmp(jmp_buf environment): Macro này lưu trữ môi trường (environment) hiện tại bên trong biến environment để sử dụng sau bởi hàm longjmp(). Nếu macro này trả về một cách trực tiếp từ lời gọi macro, thì nó trả về 0; nhưng nếu nó trả về từ một lời gọi hàm longjmp(), thì một giá trị khác 0 được trả về.
