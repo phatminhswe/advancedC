@@ -1606,12 +1606,13 @@ int resultRightShift = num >> shiftAmount;
 
 
 **EX:**
+```C
 #include <stdio.h>
 #include <stdint.h>
 
 #define ENABLE 1
 #define DISABLE 0
-```C
+
 typedef struct {
     uint8_t LED1 : 1;
     uint8_t LED2 : 1;
