@@ -1733,7 +1733,7 @@ struct Example {
 ![image](https://github.com/phatminhswe/advancedC/assets/162662273/462296b3-b8b5-49dc-bcbc-3ef249b36c6e)
 
 
-
+</details>
 
 
 
