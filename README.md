@@ -1698,7 +1698,8 @@ int main() {
 </details>
 <details><summary> LECTURE 8 : Struct - Union </summary>
 
-struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
+
+- struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
 
 syntax :
  
@@ -1732,8 +1733,34 @@ struct Example {
 
 ![image](https://github.com/phatminhswe/advancedC/assets/162662273/462296b3-b8b5-49dc-bcbc-3ef249b36c6e)
 
+```c
+struct Example1 {
+    uint8_t arr1[5]; // blue
+    uint16_t arr2[4]; // green   
+uint32_t arr3[2];      // yellow		
+};
+```
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/f5526a12-3e4b-4bf4-98da-401b37cc6899)
+
+- union là một cấu trúc dữ liệu giúp lập trình viên kết hợp nhiều kiểu dữ liệu khác nhau vào cùng một vùng nhớ. Mục đích chính của union là tiết kiệm bộ nhớ bằng cách chia sẻ cùng một vùng nhớ cho các thành viên của nó. Điều này có nghĩa là, trong một thời điểm, chỉ một thành viên của union có thể được sử dụng. Điều này được ứng dụng nhằm tiết kiệm bộ nhớ.
+
+syntax :
+
+```c
+union TenUnion {
+    kieuDuLieu1 thanhVien1;
+    kieuDuLieu2 thanhVien2;
+    // ...
+};
+```
+
+
+
+
 
 </details>
+
 
 
 
