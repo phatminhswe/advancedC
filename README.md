@@ -1696,7 +1696,41 @@ int main() {
 }
 ```
 
+<details><summary> LECTURE 8 : Struct - Union </summary>
 
+struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
+
+syntax :
+ 
+```
+struct TenStruct {
+    kieuDuLieu1 thanhVien1;
+    kieuDuLieu2 thanhVien2;
+    // ...
+};
+
+```
+
+**Kích thước của struct**
+```c
+struct Example {
+    uint8_t a;  // blue  
+    uint16_t b; // green
+    uint32_t c; // yellow 
+}; 
+```
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/0f06e45f-0b0e-4263-9382-3b795ef7cfd2)
+
+```c
+struct Example {
+    uint8_t a;     // blue  
+    uint32_t b;    // green
+    uint16_t c;    // yellow  
+};
+```
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/462296b3-b8b5-49dc-bcbc-3ef249b36c6e)
 
 
 
