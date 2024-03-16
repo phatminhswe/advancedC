@@ -1695,7 +1695,7 @@ int main() {
     return 0;
 }
 ```
-
+</details>
 <details><summary> LECTURE 8 : Struct - Union </summary>
 
 struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
