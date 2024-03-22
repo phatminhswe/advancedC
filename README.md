@@ -2213,6 +2213,8 @@ JSON values cannot be one of the following data types: a function a date undefin
 </details>
 <details><summary> LECTURE 10 : Linked list </summary>
 
+**Linked list** is a data structure in computer programming, used to organize and store data. A linked list consists of a chain of "nodes", each containing a data value and a pointer to the next node in the chain.
+
 Linked List ADT
 
 - insert - adds an element at the beginning of the list
