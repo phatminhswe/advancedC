@@ -2716,6 +2716,55 @@ int main() {
 
 ```
 
+# QUEUE
+
+**Overview**
+
+- another common data structure is the queue
+
+- a queue is similar to a checkout line in a grocery store
+
+  - the first person in line is serviced first
+
+  - other customers enter the line only at the end and wait to be serviced
+
+- queue elements are removed only from the head of the queue
+
+- queue elements are inserted only at the tail of the queue
+
+- a queue is referred to as a first-in, first-out (FIFO) data structure
+
+- try not to confuse a queue with a stack
+
+  - a stack works based on the last-in-first-out (LIFO) principle
+
+  - the difference between stacks and queues is in removing
+
+    - in a stack we remove the item that was most recently added
+
+    - in a queue, we remove the item that was least recently added
+- there are two main operations in a queue
+
+  - enqueue
+
+  - dequeue
+
+- enqueue will insert an element into the back of the queue
+
+- dequeue will remove an element from the front of the queue
+
+- other operations
+
+  - IsEmpty - check if queue is empty
+
+  - IsFull - check if queue is full
+
+  - peek - get the value of the front of queue without removing it
+
+  -poll or offer (same as dequeue and enqueue)
+
+
+
 
 
 
