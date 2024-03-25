@@ -2566,13 +2566,13 @@ void display()
 
 - the last item to be put in to the stack is always the first item to be removed
 
- -referred to as a last-in, first-out (LIFO) data structure
+  -referred to as a last-in, first-out (LIFO) data structure
  
 - a stack is referenced via a pointer to the top element of the stack
 
- -the link member in the last node of the stack is set to NULL to indicate the bottom of the stack
+  -the link member in the last node of the stack is set to NULL to indicate the bottom of the stack
 
- -not setting the link in the bottom node of a stack to NULL can lead to runtime errors
+  -not setting the link in the bottom node of a stack to NULL can lead to runtime errors
 
 - stacks and linked lists are represented identically
 
