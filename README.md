@@ -2556,7 +2556,7 @@ void display()
 </details>
 <details><summary> LECTURE 11 : Stack and Queue </summary>
 
-##STACK
+# STACK
 
  Overview
 ⚫ a stack is a constrained version of a linked list
