@@ -2570,13 +2570,27 @@ void display()
  
 - a stack is referenced via a pointer to the top element of the stack
 
-  -the link member in the last node of the stack is set to NULL to indicate the bottom of the stack
+  - the link member in the last node of the stack is set to NULL to indicate the bottom of the stack
 
-  -not setting the link in the bottom node of a stack to NULL can lead to runtime errors
+  - not setting the link in the bottom node of a stack to NULL can lead to runtime errors
 
 - stacks and linked lists are represented identically
 
-  -difference is that insertions and deletions may occur anywhere in a linked list, but only at the top of a stack
+  - difference is that insertions and deletions may occur anywhere in a linked list, but only at the top of a stack
+
+Basic Operations
+- the primary functions used to manipulate a stack are the push and pop function
+
+- push inserts a new element and places it on top of the stack
+
+- pop removes an element from the top of the stack
+   - frees the memory that was allocated and returns the element
+- other operations include
+  
+   - peek - looking at an element at the top without removing it
+     
+   - isEmpty - checking if the stack is empty
+
  
 
 </details>
