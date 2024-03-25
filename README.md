@@ -2598,7 +2598,126 @@ void display()
 ![image](https://github.com/phatminhswe/advancedC/assets/162662273/61048426-d2fa-4dfc-941d-b0a86caf5cc5)
 
 
+**Applications**
+
+- stacks support recursive function calls
+
+  - whenever a call is made, the function must know how to return to its caller, so the return address is pushed onto a stack
+  
+  - if a series of function calls occurs, the successive return values are pushed onto the stack in last-in, first-out order so that each function can return to its caller
+
+- stacks are used to store data in memory
+
+  - contain the space created for automatic variables on each invocation of a function
+
+  -when the function returns the space for those variables is popped off the stack
+  
+- the call stack is useful when debugging
+  
+  -shows each function call and any nested function calls
+  
+  -stacks are used by compilers in the process of evaluating expressions and generating machine language code
+  
+- balancing symbols (matching starting and ending brackets, parenthesis)
+
+- stacks can be used when implementing page visited history in a web browser
+
+- a stack could be used as an "undo" operation in a text editor
+
+- a stack can be used to implement post-fix notation in a computer language ( order of operations and operands)
+
+  - infix to Postfix/Prefix conversion
+
+- used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem
+
+- an application to reverse a string could use a stack
+
+  - push each letter of the string on to the stack
+
+  - then pop them back (string is now reversed)
  
+**Implementation**
+
+EX:
+
+```c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Stack {
+    int* items;
+    int size;
+    int top;
+} Stack;
+
+void initialize( Stack *stack, int size) {
+    stack->items = (int*) malloc(sizeof(int) * size);
+    stack->size = size;
+    stack->top = -1;
+}
+
+int is_empty( Stack stack) {
+    return stack.top == -1;
+}
+
+int is_full( Stack stack) {
+    return stack.top == stack.size - 1;
+}
+
+void push( Stack *stack, int value) {
+    if (!is_full(*stack)) {
+        stack->items[++stack->top] = value;
+    } else {
+        printf("Stack overflow\n");
+    }
+}
+
+int pop( Stack *stack) {
+    if (!is_empty(*stack)) {
+        return stack->items[stack->top--];
+    } else {
+        printf("Stack underflow\n");
+        return -1;
+    }
+}
+
+int top( Stack stack) {
+    if (!is_empty(stack)) {
+        return stack.items[stack.top];
+    } else {
+        printf("Stack is empty\n");
+        return -1;
+    }
+}
+
+int main() {
+    Stack stack1;
+    initialize(&stack1, 5);
+
+
+    push(&stack1, 10);
+    push(&stack1, 20);
+    push(&stack1, 30);
+    push(&stack1, 40);
+    push(&stack1, 50);
+    push(&stack1, 60);
+
+    printf("Top element: %d\n", top(stack1));
+
+    printf("Pop element: %d\n", pop(&stack1));
+    printf("Pop element: %d\n", pop(&stack1));
+
+    printf("Top element: %d\n", top(stack1));
+
+    return 0;
+}
+
+
+```
+
+
+
 
 </details>
 
