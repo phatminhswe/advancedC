@@ -2566,7 +2566,7 @@ void display()
 
 - the last item to be put in to the stack is always the first item to be removed
 
-  -referred to as a last-in, first-out (LIFO) data structure
+  - referred to as a last-in, first-out (LIFO) data structure
  
 - a stack is referenced via a pointer to the top element of the stack
 
@@ -2578,7 +2578,8 @@ void display()
 
   - difference is that insertions and deletions may occur anywhere in a linked list, but only at the top of a stack
 
-Basic Operations
+**Basic Operations**
+
 - the primary functions used to manipulate a stack are the push and pop function
 
 - push inserts a new element and places it on top of the stack
@@ -2590,6 +2591,12 @@ Basic Operations
    - peek - looking at an element at the top without removing it
      
    - isEmpty - checking if the stack is empty
+
+**Illustration**
+ 
+
+![image](https://github.com/phatminhswe/advancedC/assets/162662273/61048426-d2fa-4dfc-941d-b0a86caf5cc5)
+
 
  
 
