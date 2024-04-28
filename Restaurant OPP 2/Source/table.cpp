@@ -1,0 +1,164 @@
+/*
+* File: table.cpp
+* Author: Minh Phat
+* Date: 21/04/2024
+* Description: This file contains all the functions/methods of class Table
+*/
+#include "table.h"
+
+/*
+* Class: Table
+* Function: resetTable
+* Description: This function is used for reseting status table
+* Input:   None
+* Output:  None
+*/
+void Table::resetTable () {
+    setStatus(Free);
+    orderList.clear();
+}
+/*
+* Class: Table
+* Function: getTableID
+* Description: This function is used for getting table's ID 
+* Input:   None
+* Output:  return: tableID (table's ID)
+*/
+int Table::getTableID() {
+    return tableID;
+}
+/*
+* Class: Table
+* Function: setStatus
+* Description: This function is used for setting status of table  
+* Input:   _status (status of table)
+* Output:  return: None
+*/
+void Table::setStatus(Status _status) {
+    status = _status;
+}
+
+/*
+* Class: Table
+* Function: getStatus
+* Description: This function is used for getting status of table 
+* Input:   None
+* Output:  return: status (status of table)
+*/
+Status Table::getStatus() {
+    return status;
+}
+
+/*
+* Class: Table
+* Function: orderDish
+* Description: This function is used for adding dish
+* Input:   ID_input (ID of list), menu (dish list)
+* Output:  None
+*/
+
+void Table::orderDish(list <Dish> menu) {
+    Order newOrder;
+
+    cout << "Enter ID of dish you want: ";
+    int _ID; cin >> _ID;
+
+    list<Dish>::iterator it;
+    for (it = menu.begin(); it != menu.end(); ++it) {
+        if (it->getID() == _ID) {
+            newOrder.dish.setID(it->getID());
+            newOrder.dish.setName(it->getName());
+            newOrder.dish.setPrice(it->getPrice());
+            break;
+        }
+    }
+    
+    cout << "Enter quantity of dish you want: ";
+    int _num; cin >> _num;
+    newOrder.num = _num;  
+
+    orderList.push_back(newOrder);
+
+} 
+
+/*
+* Class: Table
+* Function: getOrderList
+* Description: This function is used for displaying list of ordered dishes
+* Input:   ID_input (ID of list)
+* Output:  None
+*/
+
+void Table::getOrderList(int ID_input) {
+    int count = 0;
+    cout << "\n-------------------------------------------------------------------------------------------------------" << endl;
+    cout << "\t\t\t\t\tList of your ordered dishes" << endl << endl;
+    cout << "No" << "\t\tID" << "\t\tName" << "\t\tPrice" << "\t\tQuantity" << endl;
+    for (auto i : orderList) {
+        count++;
+        cout << count << "\t\t" << i.dish.getID() << "\t\t" << i.dish.getName() << "\t\t" << i.dish.getPrice() << "\t\t" << i.num << endl;
+    }
+} 
+
+/*
+* Class: Table
+* Function: changeNum
+* Description: This function is used for changing quantity of ordered dish
+* Input:   ID_input (ID of list)
+* Output:  None
+*/
+
+void Table::changeNum(int ID_input) {
+    list<Order>::iterator it;
+    for (it = orderList.begin(); it != orderList.end(); ++it) {
+        if (it->dish.getID() == ID_input) {
+            cout << "\n-------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\t\t\tData is founded " << endl << endl;
+            cout << "ID" << "\t\t\tName" << "\t\t\tPrice" << "\t\t\tQuantity" << endl;
+            cout << it->dish.getID() << "\t\t\t" << it->dish.getName() << "\t\t\t" << it->dish.getPrice() << "\t\t\t" << it->num;
+            cout << "\n-------------------------------------------------------------------------------------------------------" << endl;
+
+            cout << "\n\t\t\tPlease re-enter quantity of dish you want: " << endl;
+            int ans = 0; cin >> ans;
+            if(ans == it->num){
+            orderList.erase(it);
+            }
+            else{
+            it->num = ans;
+            }
+            return;
+        }
+    }
+}
+
+/*
+* Class: Table
+* Function: getOrderList
+* Description: This function is used for displaying bill
+* Input:   ID_input (ID of list)
+* Output:  None
+*/
+void Table::getBill(int ID_input) {
+    int _totalBill = 0;
+    for (auto i : orderList) {
+        _totalBill += i.dish.getPrice() * i.num;
+    }
+    
+    getOrderList(ID_input);
+    cout << "\n-------------------------------------------------------------------------------------------------------" << endl;
+    cout << "\t\t\tTotal: " << _totalBill << endl; // thành tiền
+    cout << "\t\t\tVAT: 10%" << endl;
+    int grand = (110 * _totalBill)/100;
+    cout << "\t\t\tGrand total: " << grand << endl; // tổng tiền thanh toán
+    cout << "\n-------------------------------------------------------------------------------------------------------" << endl;
+
+    int ans = 0;
+    do {
+        cout << "\n\n\t\t\t1. Pay away" << endl;
+        cout << "\t\t\t2. Turn back" << endl;
+        cout << "\t\t\tPlease Enter Your Choice: " << endl;
+        cin >> ans;
+    } while (ans != 1);
+
+    resetTable();
+} 
